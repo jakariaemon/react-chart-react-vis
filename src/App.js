@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {
+    XYPlot,
+    XAxis,
+    YAxis,
+    VerticalGridLines,
+    HorizontalGridLines,
+    VerticalBarSeries
+} from './index';
+
+export default function Example(props) {
+    return (
+        <XYPlot margin={{ bottom: 70 }} xType="ordinal" width={300} height={300}>
+            <VerticalGridLines />
+            <HorizontalGridLines />
+            <XAxis tickLabelAngle={-45} />
+            <YAxis />
+            <VerticalBarSeries
+                data={[
+                    { x: 'Apples', y: 10 },
+                    { x: 'Bananas', y: 5 },
+                    { x: 'Cranberries', y: 15 }
+                ]}
+            />
+            <VerticalBarSeries
+                data={[
+                    { x: 'Apples', y: 12 },
+                    { x: 'Bananas', y: 2 },
+                    { x: 'Cranberries', y: 11 }
+                ]}
+            />
+        </XYPlot>
+    );
 }
-
-export default App;
